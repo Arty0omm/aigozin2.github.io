@@ -1,0 +1,907 @@
+/* Общие стили */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+  color: #fff;
+  background-color: #121212;
+  transition: background-color 0.3s, color 0.3s;
+  overflow-x: hidden;
+  font-size: 16px;
+}
+
+/* Анимация для header */
+header {
+  background-color: #1c1c1c;
+  padding: 10px 20px;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  animation: slideDown 0.8s ease-out;
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+header .logo {
+  font-size: 24px;
+  text-transform: uppercase;
+  margin-right: auto;
+  animation: pulseGlow 2s infinite ease-in-out;
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+  }
+  50% {
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
+  }
+}
+
+/* Hamburger Menu */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 20px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 1001;
+}
+
+.hamburger span {
+  width: 100%;
+  height: 3px;
+  background-color: #fff;
+  transition: all 0.3s ease;
+}
+
+.hamburger.active span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(7px, -7px);
+}
+
+header .menu {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  margin: 0;
+  justify-content: center;
+  flex-grow: 1;
+}
+
+header .menu a {
+  text-decoration: none;
+  color: #bbb;
+  position: relative;
+  transition: color 0.3s, transform 0.3s;
+}
+
+header .menu a:hover {
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+header .menu a::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #fff;
+  transition: width 0.3s ease;
+}
+
+header .menu a:hover::after {
+  width: 100%;
+}
+
+/* Language Toggle */
+.language-toggle {
+  position: relative;
+  margin-right: 10px;
+}
+
+.lang-button {
+  background-color: #444;
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  font-size: 14px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s, transform 0.3s;
+  text-transform: uppercase;
+}
+
+.lang-button:hover {
+  background-color: #666;
+  transform: scale(1.05);
+}
+
+.lang-dropdown {
+  display: none;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color: #1c1c1c;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  z-index: 1001;
+  min-width: 120px;
+}
+
+.lang-dropdown.active {
+  display: block;
+}
+
+.lang-dropdown button {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background: none;
+  border: none;
+  color: #bbb;
+  text-align: left;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.lang-dropdown button:hover {
+  background-color: #333;
+  color: #fff;
+}
+
+.theme-toggle {
+  background-color: #444;
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  font-size: 14px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s, color 0.3s, transform 0.3s;
+  margin-left: auto;
+  position: relative;
+  overflow: hidden;
+}
+
+.theme-toggle::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: left 0.4s ease;
+}
+
+.theme-toggle:hover::before {
+  left: 100%;
+}
+
+.theme-toggle:hover {
+  background-color: #666;
+  transform: scale(1.05);
+}
+
+main {
+  padding: 20px;
+}
+
+section {
+  padding: 50px 20px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+section h2 {
+  margin-bottom: 20px;
+  font-size: 36px;
+  color: #fff;
+  position: relative;
+  animation: fadeInUp 1s ease-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Стили для tech-reliability */
+.tech-reliability {
+  background-color: #222;
+  padding: 50px 0;
+  text-align: center;
+}
+
+.tech-items {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.tech-item {
+  width: 260px;
+  text-align: center;
+  padding: 20px;
+  background-color: #333;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  margin: 10px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.tech-item:hover {
+  transform: translateY(-10px) scale(1.05);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+}
+
+.tech-item .circle {
+  width: 80px;
+  height: 80px;
+  margin-bottom: 20px;
+  background-color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease;
+}
+
+.tech-item:hover .circle {
+  transform: rotate(360deg);
+}
+
+.tech-item img {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+}
+
+.tech-item h3 {
+  font-size: 1.5rem;
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+.tech-item p {
+  font-size: 1rem;
+  color: #bbb;
+}
+
+footer {
+  background-color: #1c1c1c;
+  color: #bbb;
+  padding: 20px;
+  text-align: center;
+  animation: fadeIn 1s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Стили для раздела "Услуги" */
+.services-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px 0;
+}
+
+.service-item {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  margin-bottom: 40px;
+  padding: 20px;
+  transition: transform 0.5s ease;
+}
+
+.service-item:hover {
+  transform: translateX(10px);
+}
+
+.service-item.reverse {
+  flex-direction: row-reverse;
+}
+
+.service-image {
+  flex: 1;
+  max-width: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.service-image img {
+  width: 200px;
+  height: 200px;
+  border-radius: 10px;
+  box-shadow: none;
+  border: none;
+  transition: transform 0.5s ease, filter 0.5s ease;
+  object-fit: cover;
+}
+
+.service-item:hover .service-image img {
+  transform: scale(1.1);
+  filter: brightness(1.1);
+}
+
+.service-content {
+  flex: 2;
+  text-align: left;
+}
+
+.service-content h3 {
+  font-size: 2rem;
+  color: #fff;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+}
+
+.service-content p {
+  font-size: 1.2rem;
+  color: #bbb;
+  margin: 10px 0;
+}
+
+.service-button {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #444;
+  color: #fff;
+  text-decoration: none;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  transition: background-color 0.3s, color 0.3s, transform 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+
+.service-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: left 0.4s ease;
+}
+
+.service-button:hover::before {
+  left: 100%;
+}
+
+.service-button:hover {
+  background-color: #666;
+  transform: scale(1.05);
+}
+
+/* Стили для раздела "О компании" */
+.about-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.about-text {
+  flex: 1;
+  text-align: left;
+}
+
+.about-text p {
+  margin: 15px 0;
+  font-size: 1.3rem;
+  color: #bbb;
+  animation: slideInLeft 1s ease-out;
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.about-text .warranty-text {
+  font-size: 1rem;
+  color: #888;
+  margin-top: 20px;
+}
+
+.about-image {
+  flex: 1;
+  width: 35%;
+  position: relative;
+}
+
+.about-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 15px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+  border: 2px solid #fff;
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+  object-fit: cover;
+}
+
+.about-image img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+}
+
+/* Светлая тема */
+.light-theme {
+  background-color: #f2f2f2;
+  color: #121212;
+}
+
+.light-theme header {
+  background-color: #fff;
+  color: #121212;
+}
+
+.light-theme header .menu a {
+  color: #121212;
+}
+
+.light-theme header .menu a:hover {
+  color: #000;
+}
+
+.light-theme header .menu a::after {
+  background-color: #121212;
+}
+
+.light-theme .lang-button {
+  background-color: #121212;
+  color: #fff;
+}
+
+.light-theme .lang-button:hover {
+  background-color: #333;
+}
+
+.light-theme .lang-dropdown {
+  background-color: #fff;
+}
+
+.light-theme .lang-dropdown button {
+  color: #121212;
+}
+
+.light-theme .lang-dropdown button:hover {
+  background-color: #e0e0e0;
+  color: #000;
+}
+
+.light-theme .theme-toggle {
+  background-color: #121212;
+  color: #fff;
+}
+
+.light-theme .theme-toggle:hover {
+  background-color: #333;
+}
+
+.light-theme .tech-reliability,
+.light-theme .tech-item {
+  background-color: #fff;
+  color: #121212;
+}
+
+.light-theme .tech-item .circle {
+  background-color: #fff;
+  border: 2px solid #121212;
+}
+
+.light-theme .tech-item h3,
+.light-theme .tech-item p {
+  color: #121212;
+}
+
+.light-theme .service-content h3 {
+  color: #121212;
+}
+
+.light-theme .service-content p {
+  color: #121212;
+}
+
+.light-theme .service-button {
+  background-color: #121212;
+  color: #fff;
+}
+
+.light-theme .service-button:hover {
+  background-color: #333;
+}
+
+.light-theme section h2 {
+  color: #121212;
+}
+
+.light-theme footer {
+  background-color: #e0e0e0;
+  color: #121212;
+}
+
+.light-theme .about-text p {
+  color: #121212;
+}
+
+.light-theme .about-text .warranty-text {
+  color: #555;
+}
+
+.light-theme .about-image img {
+  border: 2px solid #121212;
+}
+
+/* Контакты */
+.contacts p {
+  font-size: 1.2rem;
+  margin: 10px 0;
+}
+
+.contacts a {
+  color: #bbb;
+  text-decoration: none;
+  transition: color 0.3s;
+  pointer-events: auto; /* Убедимся, что клики разрешены */
+}
+
+.contacts a:hover {
+  color: #fff;
+}
+
+.light-theme .contacts a {
+  color: #121212;
+}
+
+.light-theme .contacts a:hover {
+  color: #000;
+}
+
+/* Медиа-запросы */
+@media (min-width: 1200px) {
+  .tech-items {
+    flex-wrap: nowrap;
+  }
+}
+
+@media (max-width: 1199px) {
+  .tech-items {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 768px) {
+  body {
+    font-size: 14px;
+    line-height: 1.3;
+  }
+
+  header {
+    padding: 6px 8px;
+  }
+
+  header .logo {
+    font-size: 16px;
+  }
+
+  .hamburger {
+    display: flex;
+    width: 25px;
+    height: 18px;
+    margin-right: 12px; /* Добавляем отступ справа для отделения от кнопки языка */
+  }
+
+  .hamburger span {
+    background-color: #fff;
+  }
+
+  header .menu {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: #1c1c1c;
+    padding: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+  }
+
+  header .menu.active {
+    display: flex;
+  }
+
+  header .menu a {
+    padding: 6px;
+    font-size: 13px;
+    color: #bbb;
+  }
+
+  header .menu a:hover {
+    transform: none;
+  }
+
+  header .menu a::after {
+    display: none;
+  }
+
+  .light-theme header .menu {
+    background-color: #fff;
+  }
+
+  .light-theme .hamburger span {
+    background-color: #121212;
+  }
+
+  .light-theme header .menu a {
+    color: #121212;
+  }
+
+  .light-theme header .menu a:hover {
+    color: #000;
+  }
+
+  .language-toggle {
+    margin-right: 8px; /* Уменьшаем отступ справа и добавляем слева */
+    margin-left: 8px; /* Добавляем отступ слева для баланса */
+  }
+
+  .lang-button {
+    padding: 5px 8px;
+    font-size: 10px;
+  }
+
+  .lang-dropdown {
+    min-width: 100px;
+  }
+
+  .theme-toggle {
+    padding: 5px 8px;
+    font-size: 10px;
+    margin-left: 8px; /* Увеличиваем отступ слева для отделения от кнопки языка */
+  }
+
+  main {
+    padding: 8px;
+  }
+
+  section {
+    padding: 15px 5px;
+  }
+
+  section h2 {
+    font-size: 18px;
+    margin-bottom: 8px;
+  }
+
+  .tech-items {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .tech-item {
+    width: 100%;
+    padding: 8px;
+    position: relative;
+  }
+
+  .tech-item:hover {
+    transform: translateY(-5px) scale(1.02);
+  }
+
+  .tech-item .circle {
+    width: 30px;
+    height: 30px;
+    margin-bottom: 6px;
+  }
+
+  .tech-item img {
+    width: 20px;
+    height: 20px;
+  }
+
+  .tech-item h3 {
+    font-size: 0.95rem;
+    margin-bottom: 4px;
+  }
+
+  .tech-item p {
+    font-size: 0.85rem;
+    margin: 4px 0;
+    text-align: left;
+    word-break: break-word;
+    hyphens: auto;
+    overflow-wrap: break-word;
+    line-height: 1.4;
+    overflow: auto;
+    max-height: 150px;
+  }
+
+  .about-container {
+    flex-direction: column;
+    text-align: center;
+    gap: 10px;
+  }
+
+  .about-image {
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto;
+  }
+
+  .about-text {
+    text-align: center;
+    padding: 0 5px;
+  }
+
+  .about-text p {
+    font-size: 0.85rem;
+    margin: 6px 0;
+    text-align: justify;
+  }
+
+  .about-text .warranty-text {
+    font-size: 0.7rem;
+    margin-top: 8px;
+  }
+
+  .services-container {
+    padding: 8px 0;
+  }
+
+  .service-item,
+  .service-item.reverse {
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 15px;
+    padding: 8px;
+  }
+
+  .service-image {
+    max-width: 120px;
+    margin: 0 auto;
+  }
+
+  .service-image img {
+    width: 120px;
+    height: 120px;
+  }
+
+  .service-content {
+    text-align: center;
+    padding: 0 5px;
+  }
+
+  .service-content h3 {
+    font-size: 1.2rem;
+    margin-bottom: 6px;
+  }
+
+  .service-content p {
+    font-size: 0.85rem;
+    margin: 4px 0;
+    text-align: justify;
+  }
+
+  .service-item:hover {
+    transform: translateX(0);
+  }
+
+  .service-image img:hover {
+    transform: scale(1.05);
+  }
+
+  .service-button {
+    padding: 5px 10px;
+    font-size: 0.8rem;
+    margin-top: 8px;
+  }
+
+  .contacts p {
+    font-size: 0.85rem;
+    margin: 4px 0;
+  }
+
+  footer {
+    padding: 8px;
+    font-size: 0.75rem;
+  }
+}
+
+/* Отключаем анимации для пользователей с prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .tech-item:hover,
+  .service-item:hover,
+  .service-image img:hover,
+  .theme-toggle:hover,
+  .lang-button:hover,
+  header .menu a:hover {
+    transform: none;
+    box-shadow: none;
+  }
+}

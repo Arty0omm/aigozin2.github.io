@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="cache-control" content="no-cache" />
+  <meta http-equiv="expires" content="0" />
+  <meta http-equiv="pragma" content="no-cache" />
+  <title>ИП Айгожина</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.min.css" />
+</head>
+<body>
+  <header>
+    <div class="container">
+      <div class="logo">ИП Айгожина</div>
+      <button class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <ul class="menu">
+        <li><a href="#about" data-lang-key="nav-about"></a></li>
+        <li><a href="#services" data-lang-key="nav-services"></a></li>
+        <li><a href="#advantages" data-lang-key="nav-advantages"></a></li>
+        <li><a href="#contacts" data-lang-key="nav-contacts"></a></li>
+      </ul>
+      <div class="language-toggle">
+        <button class="lang-button">RU</button>
+        <div class="lang-dropdown">
+          <button data-lang="ru">Русский</button>
+          <button data-lang="kk">Қазақша</button>
+          <button data-lang="en">English</button>
+        </div>
+      </div>
+      <button class="theme-toggle" data-lang-key="theme-toggle"></button>
+    </div>
+  </header>
+
+  <main>
+    <section id="about">
+      <div class="about-container">
+        <div class="about-text">
+          <h2 data-lang-key="about-title"></h2>
+          <p data-lang-key="about-text1"></p>
+          <p data-lang-key="about-text2"></p>
+          <p data-lang-key="about-text3"></p>
+          <p class="warranty-text" data-lang-key="about-warranty"></p>
+        </div>
+        <div class="about-image">
+          <img src="img/remont.jpg" alt="About Us" />
+        </div>
+      </div>
+    </section>
+
+    <section id="advantages" class="tech-reliability">
+      <h2 data-lang-key="advantages-title"></h2>
+      <div class="tech-items">
+        <div class="tech-item" data-aos="fade-up">
+          <div class="circle">
+            <img src="img/kachestvo.png" alt="Quality" />
+          </div>
+          <h3 data-lang-key="advantages-quality-title"></h3>
+          <p data-lang-key="advantages-quality-text"></p>
+        </div>
+        <div class="tech-item" data-aos="fade-up">
+          <div class="circle">
+            <img src="img/nadejnost.png" alt="Reliability" />
+          </div>
+          <h3 data-lang-key="advantages-reliability-title"></h3>
+          <p data-lang-key="advantages-reliability-text"></p>
+        </div>
+        <div class="tech-item" data-aos="fade-up">
+          <div class="circle">
+            <img src="img/bistrota.png" alt="Speed" />
+          </div>
+          <h3 data-lang-key="advantages-speed-title"></h3>
+          <p data-lang-key="advantages-speed-text"></p>
+        </div>
+        <div class="tech-item" data-aos="fade-up">
+          <div class="circle">
+            <img src="img/professionalism.png" alt="Specialists" />
+          </div>
+          <h3 data-lang-key="advantages-specialists-title"></h3>
+          <p data-lang-key="advantages-specialists-text"></p>
+        </div>
+      </div>
+    </section>
+
+    <section id="services">
+      <h2 data-lang-key="services-title"></h2>
+      <div class="services-container">
+        <div class="service-item" data-aos="fade-right">
+          <div class="service-image">
+            <img src="img/computer.png" alt="Computer Repair" />
+          </div>
+          <div class="service-content">
+            <h3 data-lang-key="services-computer-repair-title"></h3>
+            <p data-lang-key="services-computer-repair-text1"></p>
+            <p data-lang-key="services-computer-repair-text2"></p>
+            <a href="https://wa.me/787472061807?text=Здравствуйте,%20хочу%20узнать%20подробнее%20о%20ремонте%20компьютеров" class="service-button" target="_blank" data-lang-key="services-learn-more"></a>
+          </div>
+        </div>
+        <div class="service-item reverse" data-aos="fade-left">
+          <div class="service-image">
+            <img src="img/printer.png" alt="Cartridge Refill" />
+          </div>
+          <div class="service-content">
+            <h3 data-lang-key="services-cartridge-refill-title"></h3>
+            <p data-lang-key="services-cartridge-refill-text1"></p>
+            <p data-lang-key="services-cartridge-refill-text2"></p>
+            <a href="https://wa.me/787472061807?text=Здравствуйте,%20хочу%20узнать%20подробнее%20о%20заправке%20картриджей" class="service-button" target="_blank" data-lang-key="services-learn-more"></a>
+          </div>
+        </div>
+        <div class="service-item" data-aos="fade-right">
+          <div class="service-image">
+            <img src="img/multifunction-printer.png" alt="Office Equipment Maintenance" />
+          </div>
+          <div class="service-content">
+            <h3 data-lang-key="services-office-maintenance-title"></h3>
+            <p data-lang-key="services-office-maintenance-text1"></p>
+            <p data-lang-key="services-office-maintenance-text2"></p>
+            <a href="https://wa.me/787472061807?text=Здравствуйте,%20хочу%20узнать%20подробнее%20о%20обслуживании%20офисной%20техники" class="service-button" target="_blank" data-lang-key="services-learn-more"></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contacts" class="contacts">
+      <h2 data-lang-key="contacts-title"></h2>
+      <p data-lang-key="contacts-phone"></p>
+      <p data-lang-key="contacts-email"></p>
+      <p data-lang-key="contacts-address"></p>
+    </section>
+  </main>
+
+  <footer>
+    <p data-lang-key="footer-text"></p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
